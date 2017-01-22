@@ -1,0 +1,165 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; max-width: 1200px; height:600px; margin: 0 auto"></div>
+<script>
+
+$(function () {
+    // Create the chart
+    Highcharts.chart('container', {
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: 'Budget - January, 2015 to Decemeber, 2015'
+        },
+        subtitle: {
+            text: 'Click the slices to view detailed expenses.'
+        },
+        plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}: {point.y:.2f}'
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}<br/>'
+        },
+        series: [{
+            name: 'General Services',
+            colorByPoint: true,
+            data: [{
+                name: 'Organs of State',
+                y: 7719.32,
+                drilldown: 'Organs of State'
+            }, {
+                name: 'Tax Collection',
+                y: 11287.78,
+                drilldown: 'Tax Collection'
+            }, {
+                name: 'Other Fiscal Services',
+                y: 477.52,
+                drilldown: 'Other Fiscal Services'
+            }, {
+                name: 'Interest Payment and Servicing of Debt',
+                y: 476089.17,
+                drilldown: 'Interest Payment and Servicing of Debt'
+            }, {
+                name: 'Administrative Services',
+                y: 63803.28,
+                drilldown: 'Administrative Services'
+            }, {
+                name: 'Pensions and Miscellaneous General Services',
+                y: 104621.94,
+                drilldown: 'Pensions and Miscellaneous General Services'
+            },{
+                name: 'Defence Services',
+                y: 158619.81,
+                drilldown: 'Defence Services'
+            }]
+        }],
+        drilldown: {
+            series: [{
+                name: 'Organs of State',
+                id: 'Organs of State',
+                data: [
+					['Parliament/State/Union Territory Legislatures',935.99],
+					['President, Vice President/Governor, Administrator of Union Territories',51.55],
+					['Council of Ministers',415.68],
+					['Administration of Justice',683.65],
+					['Elections',2218.40],
+					['Audit',3414.05]
+                ]
+            }, {
+                name: 'Tax Collection',
+                id: 'Tax Collection',
+                data: [
+                   	['Collection of Taxes on Income and Expenditure', 4857.97],
+					['Collection of Taxes on Wealth, Securities Transaction Tax and Other Taxes',120.82],
+					['Customs',2859.41],
+					['Union Excise Duties',3449.58]
+                ]
+            }, {
+                name: 'Other Fiscal Services',
+                id: 'Other Fiscal Services',
+                data: [
+					['Currency, Coinage and Mint',0],
+					['Other Fiscal Services',477.52]
+                ]
+            }, {
+                name: 'Interest Payment and Servicing of Debt',
+                id: 'Interest Payment and Servicing of Debt',
+                data: [
+					['Appropriation for Reduction Or Avoidance of Debt',1000.00],
+					['Interest Payments',475089.17]
+                ]
+            }, {
+                name: 'Administrative Services',
+                id: 'Administrative Services',
+                data: [
+					['Public Service Commission',327.85],
+					['Secretariat-General Services',3564.27],
+					['Police', 52019.43],
+					['Jails' ,2.90],
+					['Supplies and Disposals', 122.77],
+					['Stationery and Printing',57.76],
+					['Public Works',1599.45],
+					['External Affairs',5307.32],
+					['Vigilance',34.86,35.26],
+					['Other Administrative Services',766.67]
+                ]
+            },	{
+                name: 'Pensions and Miscellaneous General Services',
+                id: 'Pensions and Miscellaneous General Services',
+                data: [
+                	['Pensions and other Retirement Benefits',89521.26],
+					['Miscellaneous General Services',15100.68]
+                ]
+            },	{
+                name: 'Pensions and Miscellaneous General Services',
+                id: 'Pensions and Miscellaneous General Services',
+                data: [
+					['Defence Services - Army',106995.83],
+					['Defence Services - Navy',16125.64],
+					['Defence Services - Air Force',24300.09],
+					['Defence Services - Ordnance Factories',4563.16],
+					['Defence Services - Research and Development',6635.09]
+                ]
+            },	{
+                name: 'Defence Services',
+                id: 'Defence Services',
+                data: [
+					['General Education',19885.20],
+					['Technical Education',8995.02],
+					['Sports and Youth Services',1215.96],
+					['Art and Culture',1894.69],
+					['Medical and Public Health',10852.65],
+					['Family Welfare',654.10],
+					['Water Supply and Sanitation',231.00],
+					['Housing',1404.96],
+					['Urban Development',563.29],
+					['Information and Publicity',481.65],
+					['Broadcasting',2869.55],
+					['Welfare of Scheduled Castes, Scheduled Tribes, Other Backward Classes and Minorities',3427.66,3490.19],
+					['Labour and Employment',5156.78],
+					['Social Security and Welfare',6387.69],
+					['Nutrition',34.00],
+					['Relief on account of Natural Calamities',6666.76],
+					['Other Social Services',81.23],
+					['Secretariat-Social Services',704.44]
+                ]
+            }]
+        },
+	 	exporting: {
+            enabled: true
+        }
+    });
+});
+
+</script>
